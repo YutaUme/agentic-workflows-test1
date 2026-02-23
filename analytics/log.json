@@ -1,7 +1,12 @@
 [
   {
+    "name": "click_btn_send",
+    "condition": "Button with ID 'sendButton' is clicked",
+    "description": "User clicks the send button"
+  },
+  {
     "name": "show_page_home",
-    "condition": "home page is displayed",
-    "description": "Tracks when the home page becomes visible"
+    "condition": "DOM is fully loaded",
+    "description": "User lands on the home page"
   }
 ]
