@@ -6,7 +6,6 @@ Agentic Workflows で `analytics/log.json` の自動同期を検証するため�
 
 - 画面には `HelloWorld` と `送信` ボタンを表示
 - ページ表示時に `show_page_home` を送信
-- 送信ボタンクリック時に `click_btn_send` を送信
 
 実装ファイル:
 
@@ -16,8 +15,7 @@ Agentic Workflows で `analytics/log.json` の自動同期を検証するため�
 ## ログ管理
 
 - 管理ファイル: `analytics/log.json`
-- 現在は意図的に `show_page_home` のみ記載
-- `click_btn_send` は未記載のため、差分がある状態
+- 現在は `show_page_home` を管理
 
 ## Agentic Workflow
 

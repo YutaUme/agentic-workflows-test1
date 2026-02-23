@@ -20,19 +20,19 @@ safe-outputs:
 
 # sync-log-json
 
-Update `analytics/log.json` to match the current app log definitions in `app/log_events.ts`.
+Update `analytics/log.json` to match the current app log definitions in `app/main.js`.
 
 ## Tasks
 
-1. Read `app/log_events.ts` and extract all objects in `logDefinitions` as:
+1. Read `app/main.js` and extract all objects in `EVENT_DEFINITIONS` as:
    - `name`
    - `condition`
    - `description`
 2. Read `analytics/log.json`.
-3. Make `analytics/log.json` the source-of-truth mirror of `logDefinitions`:
+3. Make `analytics/log.json` the source-of-truth mirror of `EVENT_DEFINITIONS`:
    - Add missing logs.
    - Update logs when `condition` or `description` changed.
-   - Remove logs that are no longer present in `logDefinitions`.
+   - Remove logs that are no longer present in `EVENT_DEFINITIONS`.
 4. Sort output by `name` ascending.
 5. Keep JSON formatting with 2-space indentation and a trailing newline.
 
@@ -46,4 +46,4 @@ Update `analytics/log.json` to match the current app log definitions in `app/log
 ## Constraints
 
 - Edit only `analytics/log.json`.
-- Do not modify `app/log_events.ts`.
+- Do not modify `app/main.js`.

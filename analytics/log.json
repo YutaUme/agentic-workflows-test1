@@ -1,0 +1,7 @@
+[
+  {
+    "name": "show_page_home",
+    "condition": "home page is displayed",
+    "description": "Tracks when the home page becomes visible"
+  }
+]

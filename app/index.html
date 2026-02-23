@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Repo1 Demo App</title>
+    <style>
+      body {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: #f5f7fa;
+      }
+
+      .card {
+        width: min(92vw, 420px);
+        background: #fff;
+        border: 1px solid #d8dee9;
+        border-radius: 12px;
+        padding: 24px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0 0 20px;
+        font-size: 32px;
+      }
+
+      button {
+        border: 0;
+        border-radius: 8px;
+        padding: 12px 20px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        background: #0b57d0;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #0845a5;
+      }
+
+      .hint {
+        margin-top: 14px;
+        color: #5f6368;
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1>HelloWorld</h1>
+      <button id="sendButton" type="button">送信</button>
+      <p class="hint">ログ送信はブラウザコンソールに表示されます。</p>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
