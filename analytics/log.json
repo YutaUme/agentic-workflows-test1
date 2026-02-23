@@ -1,7 +1,12 @@
 [
   {
+    "name": "click_btn_send",
+    "condition": "When the send button is clicked",
+    "description": "Records when the user clicks the send button."
+  },
+  {
     "name": "show_page_home",
-    "condition": "home page is displayed",
-    "description": "Tracks when the home page becomes visible"
+    "condition": "When the home page is loaded",
+    "description": "Records when the user views the home page."
   }
 ]
