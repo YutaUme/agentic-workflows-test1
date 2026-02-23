@@ -22,7 +22,7 @@
 # For more information: https://github.github.com/gh-aw/introduction/overview/
 #
 #
-# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"5502c0a78311476698f50ac4f74c2c0f84efc2931bd04f51bf821861344f750a","compiler_version":"v0.49.3"}
+# gh-aw-metadata: {"schema_version":"v1","frontmatter_hash":"d9e7e57626248d1c6c9fce9129d022732b44f0511546f89973f714b9bede9c3d","compiler_version":"v0.49.3"}
 
 name: "sync-log-json"
 "on":
@@ -290,7 +290,7 @@ jobs:
             const awInfo = {
               engine_id: "gemini",
               engine_name: "Google Gemini CLI",
-              model: process.env.GH_AW_MODEL_AGENT_CUSTOM || "",
+              model: "gemini-2.5-flash",
               version: "",
               agent_version: "",
               cli_version: "v0.49.3",
@@ -690,6 +690,7 @@ jobs:
           DEBUG: gemini-cli:*
           GEMINI_API_BASE_URL: http://host.docker.internal:10003
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-2.5-flash
           GH_AW_MCP_CONFIG: ${{ github.workspace }}/.gemini/settings.json
           GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
           GH_AW_SAFE_OUTPUTS: ${{ env.GH_AW_SAFE_OUTPUTS }}
@@ -993,6 +994,7 @@ jobs:
         env:
           DEBUG: gemini-cli:*
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: gemini-2.5-flash
           GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
           GITHUB_WORKSPACE: ${{ github.workspace }}
       - name: Parse threat detection results
@@ -1051,6 +1053,7 @@ jobs:
     timeout-minutes: 15
     env:
       GH_AW_ENGINE_ID: "gemini"
+      GH_AW_ENGINE_MODEL: "gemini-2.5-flash"
       GH_AW_WORKFLOW_ID: "sync-log-json"
       GH_AW_WORKFLOW_NAME: "sync-log-json"
     outputs:

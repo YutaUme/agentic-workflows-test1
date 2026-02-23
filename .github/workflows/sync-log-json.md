@@ -3,8 +3,9 @@ on:
   pull_request:
     types: [closed]
     branches: [develop]
-if: ${{ github.event.pull_request.merged == true }}
-engine: gemini
+engine:
+  id: gemini
+  model: gemini-2.5-flash
 
 permissions:
   contents: read
