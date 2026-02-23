@@ -25,4 +25,4 @@ Agentic Workflows で `analytics/log.json` の自動同期を検証するため�
   - `workflow_dispatch`
   - `push` to `develop`
 
-Workflow は `app/main.js` の `EVENT_DEFINITIONS` を正として、`analytics/log.json` を同期します。
+Workflow は `app/main.js` の `sendLog("name")` 呼び出しを正として、`analytics/log.json` を同期します。
