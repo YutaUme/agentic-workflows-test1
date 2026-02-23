@@ -1,8 +1,10 @@
 ---
 on:
-  workflow_dispatch:
-  push:
+  pull_request:
+    types: [closed]
     branches: [develop]
+if: ${{ github.event.pull_request.merged == true }}
+engine: gemini
 
 permissions:
   contents: read
@@ -24,17 +26,19 @@ Update `analytics/log.json` to match the current app log definitions in `app/mai
 
 ## Tasks
 
-1. Read `app/main.js` and extract all objects in `EVENT_DEFINITIONS` as:
-   - `name`
-   - `condition`
-   - `description`
-2. Read `analytics/log.json`.
-3. Make `analytics/log.json` the source-of-truth mirror of `EVENT_DEFINITIONS`:
+1. Read `app/main.js` and extract log names from all `sendLog("name")` calls.
+   - Use the first argument string literal as `name`.
+2. For each extracted log name, infer `condition` and `description` by reading surrounding code context:
+   - Determine where and when the call is triggered (for `condition`).
+   - Summarize the user/business meaning in one short sentence (for `description`).
+   - If the code context is insufficient, keep the existing values from `analytics/log.json` when available.
+3. Read `analytics/log.json`.
+4. Make `analytics/log.json` the source-of-truth mirror of extracted log names:
    - Add missing logs.
-   - Update logs when `condition` or `description` changed.
-   - Remove logs that are no longer present in `EVENT_DEFINITIONS`.
-4. Sort output by `name` ascending.
-5. Keep JSON formatting with 2-space indentation and a trailing newline.
+   - Update `condition` or `description` using the latest inference from code context.
+   - Remove logs that are no longer present in `sendLog(...)` calls.
+5. Sort output by `name` ascending.
+6. Keep JSON formatting with 2-space indentation and a trailing newline.
 
 ## Pull request policy
 
