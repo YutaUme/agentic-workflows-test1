@@ -3,6 +3,9 @@ on:
   workflow_dispatch:
   push:
     branches: [develop]
+engine:
+  id: gemini
+  model: gemini-2.5-flash
 
 permissions:
   contents: read
